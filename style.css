@@ -6,8 +6,9 @@
 
 :root {
     --bc-primary: hsl(218, 17%, 62%);
-    --bc-secundary:hsl(0, 0%, 90%);
+    --bc-secundary: hsl(0, 0%, 90%);
     --bc-tertiary: hsl(275, 18%, 79%);
+    --bc-tarja: #FEFAFA;
 
     font-size: 62.5%; /*10px*/
     --ffm-headeling: 'Staatliches', cursive;
@@ -35,7 +36,9 @@ body::before {
 
 .page {
     max-width: 38.5rem;
-    margin: 0 auto;
+    margin: 0 auto 6rem;
+    padding: 0 2rem;
+    
 }
 
 header {
@@ -43,6 +46,9 @@ header {
     text-align: center;
 }
 
+header {
+    animation: topdown 900ms;
+}
 header h1 {
     font-weight: 400;
     font-size: 4rem;
@@ -59,10 +65,12 @@ header h1 {
 
 main {
     max-width: 32rem;
-    margin: 1.4rem auto;
+    margin: 6rem auto;
     
     display: grid;
     gap: 3.2rem;
+
+    animation: downtop 900ms; 
 }
 
 main p {
@@ -74,5 +82,53 @@ main p {
 
     text-align: center;
     align-items: center; 
-    max-width: 100%;
+
+    margin-bottom: 3.1rem;
 }
+.card {
+    position: relative;
+}
+
+.card img {
+    height: auto;
+    border-radius: 2rem;
+}
+
+.card h2 {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    padding: 0.6rem 2rem;
+    background: var(--bc-tarja);
+    border-radius: 2rem;
+
+    font-family: var(--ffm-headeling);
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 3.4rem;
+    letter-spacing: 0.05em;
+}
+/*---------------Animação----------------------*/
+
+@keyframes topdown {
+    0% {
+        opacity: 0;
+        transform: translatex(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translatex(0);
+    }
+}
+
+@keyframes downtop {
+    0% {
+        opacity: 0;
+        transform: translatex(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translatex(0)
+    }
+}
+
